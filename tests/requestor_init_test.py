@@ -8,8 +8,6 @@ class RequestorInitTestCase(unittest.TestCase):
 
     def test_ini_db_host(self):
         self.assertNotEqual(self.vm.db.ini.db.host, '')
-        self.assertNotEqual(self.vm.db.ini.table.request, '')
-        self.assertNotEqual(self.vm.db.ini.table.requestparam, '')
 
 
     def test_ini_table_request(self):

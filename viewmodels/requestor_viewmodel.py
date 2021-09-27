@@ -67,9 +67,12 @@ class RequestorViewModel:
         workbook = xlsxwriter.Workbook(file)
         worksheet = workbook.add_worksheet()
 
+        for i in range(len(self.columns)):
+            worksheet.write(0, i, self.columns[i])
+
         for i in range(len(self.results)):
-            column = i + 1
+            row = i + 1
             for j in range(len(self.results[i])):
-                worksheet.write(column, j, self.results[i][j])
+                worksheet.write(row, j, self.results[i][j])
         
         workbook.close()

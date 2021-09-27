@@ -28,3 +28,4 @@ class RequestorExecTestCase(unittest.TestCase):
         self.vm.export_excel('temp.xlsx')
         self.assertEqual(os.path.isfile('temp.xlsx'), True)
         os.remove('temp.xlsx')
+

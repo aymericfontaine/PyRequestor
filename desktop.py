@@ -100,7 +100,7 @@ class Desktop(QWidget):
 
 
     def export_excel(self):
-        file = QFileDialog.getSaveFileName(self, 'save file')
+        file = QFileDialog.getSaveFileName(self, 'Save file')
         if file != '':
             self.vm.export_excel(file[0])
 

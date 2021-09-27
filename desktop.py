@@ -1,6 +1,7 @@
 import sys
+import os
 from viewmodels.requestor_viewmodel import RequestorViewModel
-from PyQt5.QtWidgets import QApplication, QComboBox, QFileDialog, QGridLayout, QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget
+from PyQt5.QtWidgets import QApplication, QComboBox, QFileDialog, QGridLayout, QLabel, QLineEdit, QMessageBox, QPushButton, QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget
 
 class Desktop(QWidget):
     def __init__(self):
@@ -103,6 +104,10 @@ class Desktop(QWidget):
         file = QFileDialog.getSaveFileName(self, 'Save file')
         if file != '':
             self.vm.export_excel(file[0])
+
+            reply = QMessageBox.question(self, '', 'Open the created file?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                os.startfile(file[0])
 
 
 app = QApplication(sys.argv)
